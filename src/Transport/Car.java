@@ -1,126 +1,125 @@
 package Transport;
 
 public class Car {
-    private final String brand;
-    private final String model;
-    private double engineVolume;
-    private final Integer year;
-    private final String country;
-    private final String color;
-    private final String transmission;
-    private final String carBody;
-    private final Integer registrationNumber;
-    private final Integer numberSeats;
-    private final String atributte;
+    public class Car {
+        private final String brand;
+        private final String model;
+        private double engineVolume;
+        private final Integer year;
+        private final String country;
+        private final String color;
+        private final String transmission;
+        private final String carBody;
+        private final Integer registrationNumber;
+        private final Integer numberSeats;
+        private final String atributte;
+        private final String Key;
 
-    private class  Key {
-        public void startEngine () {
-            System.out.println("Удаленный запуск двигателя");
+        private class Key {
+            private String startEngine;
+            private String keylessAccess;
         }
-        public void  keylessAccess () {
-            System.out.println("Бесключевой доступ");
+
+
+        public Car(String brand, String model, double engineVolume, Integer year, String country, String color,
+                   String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte, String key) {
+            this.brand = validateCarParametres(brand);
+            this.model = validateCarParametres(model);
+            this.engineVolume = validateEnginePower(engineVolume);
+            this.year = validateYear(year);
+            this.country = validateCarParametres(country);
+            this.color = validateCarColor(color);
+            this.transmission = validateCarParametres(transmission);
+            this.carBody = validateCarParametres(carBody);
+            this.registrationNumber = validateRegistrationNumber(registrationNumber);
+            this.numberSeats = validateNumberSeats(numberSeats);
+            this.atributte = atributte;
+            Key = key;
         }
 
-    }
+        public String getBrand() {
+            return brand;
+        }
 
-    public Car(String brand, String model, double engineVolume, Integer year, String country, String color,
-               String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte) {
-        this.brand = validateCarParametres(brand);
-        this.model = validateCarParametres(model);
-        this.engineVolume = validateEnginePower(engineVolume);
-        this.year = validateYear(year);
-        this.country = validateCarParametres(country);
-        this.color = validateCarColor(color);
-        this.transmission = validateCarParametres(transmission);
-        this.carBody = validateCarParametres(carBody);
-        this.registrationNumber = validateRegistrationNumber(registrationNumber);
-        this.numberSeats = validateNumberSeats(numberSeats);
-        this.atributte = atributte;
-    }
+        public String getModel() {
+            return model;
+        }
 
-    public String getBrand() {
-        return brand;
-    }
+        public double getEngineVolume() {
+            return engineVolume;
+        }
 
-    public String getModel() {
-        return model;
-    }
+        public void setEngineVolume(double engineVolume) {
+            this.engineVolume = engineVolume;
+        }
 
-    public double getEngineVolume() {
-        return engineVolume;
-    }
+        public Integer getYear() {
+            return year;
+        }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
+        public String getCountry() {
+            return country;
+        }
 
-    public Integer getYear() {
-        return year;
-    }
+        public String getColor() {
+            return color;
+        }
 
-    public String getCountry() {
-        return country;
-    }
+        public String getTransmission() {
+            return transmission;
+        }
 
-    public String getColor() {
-        return color;
-    }
+        public String getCarBody() {
+            return carBody;
+        }
 
-    public String getTransmission() {
-        return transmission;
-    }
+        public Integer getRegistrationNumber() {
+            return registrationNumber;
+        }
 
-    public String getCarBody() {
-        return carBody;
-    }
+        public Integer getNumberSeats() {
+            return numberSeats;
+        }
 
-    public Integer getRegistrationNumber() {
-        return registrationNumber;
-    }
+        public String isAtributte() {
+            return atributte;
+        }
 
-    public Integer getNumberSeats() {
-        return numberSeats;
-    }
+        public String Key() {
+            return Key;
+        }
 
-    public String isAtributte() {
-        return atributte;
-    }
+        @Override
+        public String toString() {
+            return " Марка автомобиля: " + brand + " Модель автомобиля: " + model + " объем двигателя: " + engineVolume +
+                    " Цвет автомобиля: " + color + " год выпуска автомобиля: " + year + " страна сборки автомобиля: " + country + " трансмиссия автомобиля: " +
+                    transmission + " кузов автомобиля: " + carBody + " Рег.знак: " + registrationNumber + " количество мест: " + numberSeats +
+                    " тип шины: " + atributte + " бесключевой доступ " + Key;
+        }
 
-    public void start () {
-        Key key = new Key();
-        key.startEngine();
-        key.keylessAccess();
-    }
+        public static double validateEnginePower(double value) {
+            return value <= 0 ? 1.5 : value;
+        }
 
-    @Override
-    public String toString() {
-        return " Марка автомобиля: " + brand + " Модель автомобиля: " + model + " объем двигателя: " + engineVolume +
-                " Цвет автомобиля: " + color + " год выпуска автомобиля: " + year + " страна сборки автомобиля: " + country + " трансмиссия автомобиля: " +
-                transmission + " кузов автомобиля: " + carBody + " Рег.знак: " + registrationNumber + " количество мест: " + numberSeats + " тип шины: " + atributte;
-    }
+        public static Integer validateYear(Integer value) {
+            return value == null ? 2000 : value;
+        }
 
-    public static double validateEnginePower(double value) {
-        return value <= 0 ? 1.5 : value;
-    }
+        private static String validateCarColor(String value) {
+            return value == null ? "белый" : value;
+        }
 
-    public static Integer validateYear(Integer value) {
-        return value == null ? 2000 : value;
-    }
+        public static String validateCarParametres(String Value) {
+            return Utile.validateString(Value, "default");
+        }
 
-    private static String validateCarColor(String value) {
-        return value == null ? "белый" : value;
-    }
+        public static int validateRegistrationNumber(int value) {
+            return value <= 0 ? 777 : value;
+        }
 
-    public static String validateCarParametres(String Value) {
-        return Utile.validateString(Value, "default");
-    }
-
-    public static int validateRegistrationNumber(int value) {
-        return value <= 0 ? 777 : value;
-    }
-
-    public static int validateNumberSeats(int value) {
-        return value <= 0 ? 5 : value;
+        public static int validateNumberSeats(int value) {
+            return value <= 0 ? 5 : value;
+        }
     }
 }
 
