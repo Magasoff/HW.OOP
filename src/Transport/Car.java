@@ -2,7 +2,7 @@ package Transport;
 
 import static Transport.Utile.validateBoolean;
 
-public class Car {
+public class Car extends Transport {
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -34,7 +34,8 @@ public class Car {
     }
 
     public Car(String brand, String model, double engineVolume, Integer year, String country, String color,
-               String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte) {
+               String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte, Integer maxSpeed, String refillType) {
+        super(brand, model, year, country, color, maxSpeed);
         this.brand = validateCarParametres(brand);
         this.model = validateCarParametres(model);
         this.engineVolume = validateEnginePower(engineVolume);
@@ -116,7 +117,7 @@ public class Car {
     }
 
     public static String validateCarParametres(String Value) {
-        return Utile.validateString(Value, "default");
+        return Utile.validateString(Value);
     }
 
     public static int validateRegistrationNumber(int value) {
