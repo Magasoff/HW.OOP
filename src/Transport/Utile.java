@@ -5,8 +5,8 @@ public class Utile {
         return (value == null || value.isBlank() || value.isEmpty() ? susbtitution : value);
     }
 
-    public static Boolean validateString(String value) {
-        return !(value == null || value.isBlank() || value.isEmpty());
+    public static String validateString(String value) {
+        return String.valueOf(!(value == null || value.isBlank() || value.isEmpty()));
     }
 
     public static Boolean validateBoolean(Boolean value) {
