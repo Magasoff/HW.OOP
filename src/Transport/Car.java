@@ -1,19 +1,15 @@
 package Transport;
 
-import static Transport.Utile.validateBoolean;
+public class  Car extends Transport {
 
-public class Car extends Transport {
-    private final String brand;
-    private final String model;
     private double engineVolume;
-    private final Integer year;
-    private final String country;
-    private final String color;
     private final String transmission;
     private final String carBody;
     private final Integer registrationNumber;
     private final Integer numberSeats;
     private final String atributte;
+
+    private Key key;
 
     public static class Key {
         private final Boolean remoteStart;
@@ -22,6 +18,10 @@ public class Car extends Transport {
         public Key(Boolean remoteStart, Boolean keyLessAccess) {
             this.remoteStart = validateBoolean(remoteStart);
             this.keyLessAccess = validateBoolean(keyLessAccess);
+        }
+
+        public static Boolean validateBoolean(Boolean value) {
+            return value != null && value;
         }
 
         @Override
@@ -34,27 +34,14 @@ public class Car extends Transport {
     }
 
     public Car(String brand, String model, double engineVolume, Integer year, String country, String color,
-               String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte, Integer maxSpeed, String refillType) {
+               String transmission, String carBody, Integer registrationNumber, Integer numberSeats, String atributte, int maxSpeed) {
         super(brand, model, year, country, color, maxSpeed);
-        this.brand = validateCarParametres(brand);
-        this.model = validateCarParametres(model);
         this.engineVolume = validateEnginePower(engineVolume);
-        this.year = validateYear(year);
-        this.country = validateCarParametres(country);
-        this.color = validateCarColor(color);
         this.transmission = validateCarParametres(transmission);
         this.carBody = validateCarParametres(carBody);
         this.registrationNumber = validateRegistrationNumber(registrationNumber);
         this.numberSeats = validateNumberSeats(numberSeats);
         this.atributte = atributte;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     public double getEngineVolume() {
@@ -63,18 +50,6 @@ public class Car extends Transport {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
     }
 
     public String getTransmission() {
@@ -99,8 +74,8 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return " Марка автомобиля: " + brand + " Модель автомобиля: " + model + " объем двигателя: " + engineVolume +
-                " Цвет автомобиля: " + color + " год выпуска автомобиля: " + year + " страна сборки автомобиля: " + country + " трансмиссия автомобиля: " +
+        return super.toString() + " , " +
+                " объем двигателя: " + engineVolume  + " трансмиссия автомобиля: " +
                 transmission + " кузов автомобиля: " + carBody + " Рег.знак: " + registrationNumber + " количество мест: " + numberSeats + " тип шины: " + atributte;
     }
 
@@ -112,13 +87,11 @@ public class Car extends Transport {
         return value == null ? 2000 : value;
     }
 
-    private static String validateCarColor(String value) {
+    public static String validateCarColor(String value) {
         return value == null ? "белый" : value;
     }
 
-    public static String validateCarParametres(String Value) {
-        return Utile.validateString(Value);
-    }
+    public static String validateCarParametres(String Value) { return Utile.validateString(Value, "default");}
 
     public static int validateRegistrationNumber(int value) {
         return value <= 0 ? 777 : value;
