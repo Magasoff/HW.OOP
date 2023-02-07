@@ -1,21 +1,20 @@
 package Transport;
 
-import static Transport.Car.*;
-
-public class Transport {
+public abstract class Transport<T> implements  Competing {
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
     private int maxSpeed;
 
     public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
         this.brand = validateCarParametres(brand);
         this.model = validateCarParametres(model);
-        this.year = validateYear(year);
-        this.country = validateCarParametres(country);
-        this.color = validateCarColor(color);
+        this.maxSpeed = maxSpeed;
+
+    }
+
+    public Transport(String brand, String model, double engineVolume, int maxSpeed) {
+        this.brand = brand;
+        this.model = model;
         this.maxSpeed = maxSpeed;
     }
 
@@ -27,21 +26,12 @@ public class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
-    }
 
-    public String getCountry() {
-        return country;
-    }
+    abstract void startMove();
 
-    public String getColor() {
-        return color;
-    }
+    abstract void finish();
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+    public abstract void getBestLapTime();
 
     public int getMaxSpeed() {
         return maxSpeed;
@@ -53,14 +43,8 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Transport{" +
-                "Марка='" + brand + '\'' +
-                ", модель='" + model + '\'' +
-                ", год=" + year +
-                ", страна ='" + country + '\'' +
-                ", цвет ='" + color + '\'' +
-                ", скорость =" + maxSpeed +
-                '}';
+        return " Transport: " + "марка: " + brand + " модель: " + model +
+                " скорость: " + maxSpeed;
     }
 
     public static Integer validateYear(Integer value) {
@@ -74,7 +58,12 @@ public class Transport {
     public static String validateCarParametres(String Value) {
         return Utile.validateString(Value, String.valueOf(20));
     }
+
+    public abstract boolean diagnostics();
+
+    public abstract void repair();
 }
+
 
 
 
