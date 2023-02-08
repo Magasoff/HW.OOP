@@ -12,6 +12,7 @@ public class DriverB extends Driver {
 
     @Override
     public void finishMove() {
+
         System.out.println("Водитель с категорией прав B " + getName() + "закончил движение");
     }
 

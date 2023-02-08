@@ -1,9 +1,11 @@
 package Transport;
 
-public abstract class Transport<T> implements  Competing {
+public abstract class Transport implements  Competing  {
     private final String brand;
     private final String model;
     private int maxSpeed;
+
+
 
     public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
         this.brand = validateCarParametres(brand);
@@ -62,6 +64,8 @@ public abstract class Transport<T> implements  Competing {
     public abstract boolean diagnostics();
 
     public abstract void repair();
+
+
 }
 
 

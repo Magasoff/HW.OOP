@@ -27,9 +27,8 @@ public abstract class Bus extends Transport {
         System.out.println("Лучшее время атобуса" + bestLapTime);
     }
     @Override
-    public int getMaxSpeed () {
+    public void getMaxSpeed () {
         System.out.println("Максимальная скорость автобуса" + maxSpeed);
-        return 0;
     }
     public boolean diagnostics () {
         System.out.println("Автобус" + getBrand() + getModel() + "прошёл диагностику");

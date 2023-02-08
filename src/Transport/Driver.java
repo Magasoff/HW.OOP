@@ -1,12 +1,21 @@
+
 package Transport;
 
-public abstract class Driver extends Transport {
+public  abstract class Driver extends Transport {
 
     private String name;
     private boolean driveLicense;
     private int experinse;
 
-    public Driver(String name, boolean driveLicense, int experinse) {
+    public Driver(String brand, String model, int year, String country, String color, int maxSpeed, String name, boolean driveLicense, int experinse) {
+        super(brand, model, year, country, color, maxSpeed);
+        this.name = name;
+        this.driveLicense = driveLicense;
+        this.experinse = experinse;
+    }
+
+    public Driver(String brand, String model, double engineVolume, int maxSpeed, String name, boolean driveLicense, int experinse) {
+        super(brand, model, engineVolume, maxSpeed);
         this.name = name;
         this.driveLicense = driveLicense;
         this.experinse = experinse;
@@ -35,36 +44,10 @@ public abstract class Driver extends Transport {
     public void setExperinse(int experinse) {
         this.experinse = experinse;
     }
-
     public abstract void startMove();
 
     public abstract void finish();
 
-    @Override
-    public void getBestLapTime() {
-
-    }
-
-    @Override
-    public boolean diagnostics() {
-        return false;
-    }
-
-    @Override
-    public void repair() {
-
-    }
-
     public abstract void refill();
 
-    @Override
-    public void getPitStop() {
-
-    }
-
-    @Override
-    public void getBestTime() {
-
-    }
 }
-
