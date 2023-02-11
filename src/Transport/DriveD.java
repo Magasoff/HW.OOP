@@ -1,19 +1,23 @@
 package Transport;
 
-public class driverD extends Driver{
-    public driverD(String name, boolean driveLicense, int experinse) {
+public class DriveD extends Drive {
+    public DriveD(String name, boolean driveLicense, int experinse) {
         super(name, driveLicense, experinse);
     }
+
     @Override
-    public void startMove () {
+    public void startMove() {
         System.out.println("Водитель с категорией прав D " + getName() + "начал движение");
     }
+
     @Override
-    public void finishMove () {
+    public void finish() {
+
         System.out.println("Водитель с категорией прав D " + getName() + "закончил движение");
     }
-    @Override
-    public void refill () {
+
+
+    public void refill() {
         System.out.println("Водитель с категорией прав D " + getName() + "заправляет авто");
     }
 }

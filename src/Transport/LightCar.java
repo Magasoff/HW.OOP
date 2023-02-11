@@ -1,12 +1,12 @@
 package Transport;
 
-public class Bus extends Transport {
-
+public  class LightCar extends  Transport {
     private final int pitStopTime;
     private final int maxSpeed;
     private final int bestLapTime;
 
-    public Bus(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
+
+    public LightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
@@ -14,12 +14,12 @@ public class Bus extends Transport {
     }
 
     void startMove() {
-        System.out.println("Автобус начал движение");
+        System.out.println("Авто начал движение");
     }
 
     @Override
     void finish() {
-        System.out.println("Автобус закончил движение");
+        System.out.println("Авто закончил движение");
 
     }
 
@@ -47,7 +47,7 @@ public class Bus extends Transport {
 
     @Override
     public void repair() {
-        System.out.println("Автобус" + getBrand() + getModel() + "отремонтировано");
+        System.out.println("Авто" + getBrand() + getModel() + "отремонтировано");
 
     }
 }

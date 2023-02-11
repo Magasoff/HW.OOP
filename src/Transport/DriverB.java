@@ -1,6 +1,6 @@
 package Transport;
 
-public class DriverB extends Driver {
+public class DriverB extends Drive {
     public DriverB(String name, boolean driveLicense, int experinse) {
         super(name, driveLicense, experinse);
     }
@@ -11,13 +11,14 @@ public class DriverB extends Driver {
     }
 
     @Override
-    public void finishMove() {
+    public void finish() {
 
         System.out.println("Водитель с категорией прав B " + getName() + "закончил движение");
     }
 
-    @Override
+
     public void refill() {
         System.out.println("Водитель с категорией прав B " + getName() + "заправляет авто");
     }
 }
+

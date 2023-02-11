@@ -1,23 +1,17 @@
 package Transport;
 
-public abstract class Transport implements  Competing  {
+public abstract class Transport <T extends Drive>  implements Competing {
+
     private final String brand;
     private final String model;
-    private int maxSpeed;
+    private double engineVolume;
 
 
-
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
-        this.brand = validateCarParametres(brand);
-        this.model = validateCarParametres(model);
-        this.maxSpeed = maxSpeed;
-
-    }
 
     public Transport(String brand, String model, double engineVolume, int maxSpeed) {
         this.brand = brand;
         this.model = model;
-        this.maxSpeed = maxSpeed;
+        this.engineVolume = engineVolume;
     }
 
     public String getBrand() {
@@ -28,47 +22,32 @@ public abstract class Transport implements  Competing  {
         return model;
     }
 
+    public double getEngineVolume() {
+        return engineVolume;
+    }
+
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume;
+    }
+
+    @Override
+    public String toString() {
+        return " Transport: " + "марка: " + brand + " модель: " + model + " объем двигателя: " + engineVolume;
+    }
 
     abstract void startMove();
 
     abstract void finish();
 
+    public abstract void getPitStop();
+
     public abstract void getBestLapTime();
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    @Override
-    public String toString() {
-        return " Transport: " + "марка: " + brand + " модель: " + model +
-                " скорость: " + maxSpeed;
-    }
-
-    public static Integer validateYear(Integer value) {
-        return value == null ? 2000 : value;
-    }
-
-    public static String validateCarColor(String value) {
-        return value == null ? "белый" : value;
-    }
-
-    public static String validateCarParametres(String Value) {
-        return Utile.validateString(Value, String.valueOf(20));
-    }
+    public abstract void getMaxSpeed();
 
     public abstract boolean diagnostics();
 
     public abstract void repair();
 
-
 }
-
-
-
-
 

@@ -1,21 +1,11 @@
-
 package Transport;
 
-public  abstract class Driver extends Transport {
-
-    private String name;
+public abstract class Drive {
+    String name;
     private boolean driveLicense;
     private int experinse;
 
-    public Driver(String brand, String model, int year, String country, String color, int maxSpeed, String name, boolean driveLicense, int experinse) {
-        super(brand, model, year, country, color, maxSpeed);
-        this.name = name;
-        this.driveLicense = driveLicense;
-        this.experinse = experinse;
-    }
-
-    public Driver(String brand, String model, double engineVolume, int maxSpeed, String name, boolean driveLicense, int experinse) {
-        super(brand, model, engineVolume, maxSpeed);
+    public Drive(String name, boolean driveLicense, int experinse) {
         this.name = name;
         this.driveLicense = driveLicense;
         this.experinse = experinse;
@@ -44,10 +34,15 @@ public  abstract class Driver extends Transport {
     public void setExperinse(int experinse) {
         this.experinse = experinse;
     }
+
+    @Override
+    public String toString() {
+        return  name + " категория прав: " + driveLicense + " водительский стаж: " + experinse;
+    }
+
     public abstract void startMove();
 
     public abstract void finish();
 
     public abstract void refill();
-
 }
