@@ -1,14 +1,17 @@
 package Transport;
 
-public abstract class Drive {
+public abstract class Drive <T> {
     String name;
     private boolean driveLicense;
     private int experinse;
+
+    private T Drive;
 
     public Drive(String name, boolean driveLicense, int experinse) {
         this.name = name;
         this.driveLicense = driveLicense;
         this.experinse = experinse;
+
     }
 
     public String getName() {

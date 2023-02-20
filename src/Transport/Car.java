@@ -50,5 +50,3 @@ public abstract class Car  extends Transport  {
         void maxSpeed ();
     }
 }
-
-

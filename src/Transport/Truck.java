@@ -1,6 +1,6 @@
 package Transport;
 
-public class Truck extends Transport {
+public class Truck extends Transport implements Competing {
 
     private final int pitStopTime;
     private final int maxSpeed;
@@ -40,6 +40,12 @@ public class Truck extends Transport {
     public void getMaxSpeed() {
         System.out.println("Макс скорость" + maxSpeed);
     }
+
+    public void getBestTime() {
+        System.out.println("Лучшее время" + bestLapTime);
+
+    }
+
     @Override
     public boolean diagnostics() {
         return false;
@@ -47,7 +53,6 @@ public class Truck extends Transport {
 
     @Override
     public void repair() {
+
     }
 }
-
-

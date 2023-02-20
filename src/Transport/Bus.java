@@ -1,6 +1,6 @@
 package Transport;
 
-public class Bus extends Transport {
+public class Bus extends Transport implements  Competing {
 
     private final int pitStopTime;
     private final int maxSpeed;
@@ -19,8 +19,12 @@ public class Bus extends Transport {
 
     @Override
     void finish() {
-        System.out.println("Автобус закончил движение");
 
+    }
+
+    @Override
+    void finishMove() {
+        System.out.println("Автобус закончил движение");
     }
 
     @Override
@@ -30,14 +34,18 @@ public class Bus extends Transport {
 
     @Override
     public void getBestLapTime() {
+
+    }
+
+    @Override
+    public void getBestTime() {
         System.out.println("Лучшее время" + bestLapTime);
 
     }
 
     @Override
     public void getMaxSpeed() {
-        System.out.println("Макс.скорость движения" + maxSpeed);
-
+        System.out.println("Максимальная скорость" + maxSpeed);
     }
 
     @Override
@@ -47,7 +55,6 @@ public class Bus extends Transport {
 
     @Override
     public void repair() {
-        System.out.println("Автобус" + getBrand() + getModel() + "отремонтировано");
 
     }
 }

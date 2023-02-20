@@ -1,26 +1,29 @@
 package Transport;
 
-public  class LightCar extends  Transport {
+public class lightCar extends  Transport implements Competing {
     private final int pitStopTime;
     private final int maxSpeed;
     private final int bestLapTime;
 
-
-    public LightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
+    public lightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
     }
 
-    void startMove() {
-        System.out.println("Авто начал движение");
+
+    void startMove () {
+        System.out.println("Автомобиль начал движение");
     }
 
     @Override
     void finish() {
-        System.out.println("Авто закончил движение");
 
+    }
+
+    void finishMove () {
+        System.out.println("Автомобиль закончил движение");
     }
 
     @Override
@@ -30,14 +33,17 @@ public  class LightCar extends  Transport {
 
     @Override
     public void getBestLapTime() {
+
+    }
+
+    public void getBestTime() {
         System.out.println("Лучшее время" + bestLapTime);
 
     }
 
     @Override
     public void getMaxSpeed() {
-        System.out.println("Макс.скорость движения" + maxSpeed);
-
+        System.out.println("Максимальная скорость" + maxSpeed);
     }
 
     @Override
@@ -47,7 +53,6 @@ public  class LightCar extends  Transport {
 
     @Override
     public void repair() {
-        System.out.println("Авто" + getBrand() + getModel() + "отремонтировано");
 
     }
 }
