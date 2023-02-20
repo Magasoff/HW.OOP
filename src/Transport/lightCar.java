@@ -13,7 +13,7 @@ public class lightCar extends  Transport implements Competing {
     }
 
 
-    void startMove () {
+    void startMove() {
         System.out.println("Автомобиль начал движение");
     }
 
@@ -22,7 +22,7 @@ public class lightCar extends  Transport implements Competing {
 
     }
 
-    void finishMove () {
+    void finishMove() {
         System.out.println("Автомобиль закончил движение");
     }
 
@@ -56,3 +56,7 @@ public class lightCar extends  Transport implements Competing {
 
     }
 }
+
+
+
+
