@@ -10,6 +10,7 @@ public abstract class Transport <T> implements Competing {
 
 
 
+
     public Transport(String brand, String model, double engineVolume, int maxSpeed) {
         this.brand = brand;
         this.model = model;
