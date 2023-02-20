@@ -1,6 +1,6 @@
 package Transport;
 
-public class Bus extends Transport implements  Competing {
+public class Bus extends Transport <DriverD> implements  Competing {
 
     private final int pitStopTime;
     private final int maxSpeed;
@@ -18,11 +18,10 @@ public class Bus extends Transport implements  Competing {
     }
 
     @Override
-    void finish() {
+    public void finish() {
 
     }
 
-    @Override
     void finishMove() {
         System.out.println("Автобус закончил движение");
     }
@@ -55,6 +54,7 @@ public class Bus extends Transport implements  Competing {
 
     @Override
     public void repair() {
-
     }
 }
+
+

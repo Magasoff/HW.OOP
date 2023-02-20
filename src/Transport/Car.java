@@ -1,6 +1,6 @@
 package Transport;
 
-public abstract class Car  extends Transport  {
+public abstract class Car  extends Transport {
 
     public int maxSpeed;
     public int pitStopTime;
@@ -20,10 +20,11 @@ public abstract class Car  extends Transport  {
         System.out.println("Машина едет");
     }
 
-    void finish () {
+    public void finish() {
         System.out.println("Машина финишировала");
     }
 
+    @Override
     public void getPitStop () {
         System.out.println("Время питстоп" + pitStopTime);
     }

@@ -1,6 +1,6 @@
 package Transport;
 
-public class Truck extends Transport implements Competing {
+public class Truck extends Transport <DriverC> implements Competing {
 
     private final int pitStopTime;
     private final int maxSpeed;
@@ -18,7 +18,7 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
-    void finish() {
+    public void finish() {
 
     }
 
@@ -41,6 +41,7 @@ public class Truck extends Transport implements Competing {
         System.out.println("Макс скорость" + maxSpeed);
     }
 
+    @Override
     public void getBestTime() {
         System.out.println("Лучшее время" + bestLapTime);
 

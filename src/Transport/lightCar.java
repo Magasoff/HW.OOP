@@ -1,6 +1,6 @@
 package Transport;
 
-public class lightCar extends  Transport implements Competing {
+public class lightCar extends Transport <DriverB> implements Competing  {
     private final int pitStopTime;
     private final int maxSpeed;
     private final int bestLapTime;
@@ -10,6 +10,7 @@ public class lightCar extends  Transport implements Competing {
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+
     }
 
 
@@ -18,7 +19,7 @@ public class lightCar extends  Transport implements Competing {
     }
 
     @Override
-    void finish() {
+    public void finish() {
 
     }
 

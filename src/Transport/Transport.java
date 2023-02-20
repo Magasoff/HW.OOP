@@ -1,6 +1,6 @@
 package Transport;
 
-public abstract class Transport <T> implements Competing {
+public abstract class Transport <T extends Drive> implements Competing {
 
     private final String brand;
     private final String model;
@@ -8,13 +8,11 @@ public abstract class Transport <T> implements Competing {
 
     private T drive;
 
-
-
-
     public Transport(String brand, String model, double engineVolume, int maxSpeed) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
+
     }
 
     public String getBrand() {
@@ -44,6 +42,7 @@ public abstract class Transport <T> implements Competing {
 
     abstract void finishMove();
 
+    @Override
     public abstract void getPitStop();
 
     public abstract void getBestLapTime();
@@ -55,5 +54,16 @@ public abstract class Transport <T> implements Competing {
     public abstract boolean diagnostics();
 
     public abstract void repair();
-
 }
+
+
+
+
+
+
+
+
+
+
+
+

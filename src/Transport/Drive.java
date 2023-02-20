@@ -1,7 +1,7 @@
 package Transport;
 
 public abstract class Drive {
-    String name;
+    private String name;
     private boolean driveLicense;
     private int experinse;
 
@@ -9,7 +9,6 @@ public abstract class Drive {
         this.name = name;
         this.driveLicense = driveLicense;
         this.experinse = experinse;
-
     }
 
     public String getName() {
@@ -38,7 +37,7 @@ public abstract class Drive {
 
     @Override
     public String toString() {
-        return  name + " категория прав: " + driveLicense + " водительский стаж: " + experinse;
+        return name + " категория прав: " + driveLicense + " водительский стаж: " + experinse;
     }
 
     public abstract void startMove();
@@ -47,3 +46,9 @@ public abstract class Drive {
 
     public abstract void refill();
 }
+
+
+
+
+
+
