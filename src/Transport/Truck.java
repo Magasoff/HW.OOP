@@ -5,12 +5,28 @@ public class Truck extends Transport <DriverC> implements Competing {
     private final int pitStopTime;
     private final int maxSpeed;
     private final int bestLapTime;
+    private loadCapacity loadCapacity;
 
-    public Truck(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
+
+    public Truck(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime, loadCapacity loadCapacity) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.loadCapacity = loadCapacity;
+    }
+
+    public loadCapacity getLoadCapacity () {return loadCapacity;}
+
+    public void setLoadCapacity (loadCapacity loadCapacity) {this.loadCapacity = loadCapacity;}
+
+    @Override
+    public void printType() {
+        if (getLoadCapacity() == null) {
+            System.out.println("Недостаточно данных");
+        } else {
+            System.out.println(getLoadCapacity());
+        }
     }
 
     void startMove() {

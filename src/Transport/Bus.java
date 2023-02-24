@@ -6,13 +6,28 @@ public class Bus extends Transport <DriverD> implements  Competing {
     private final int maxSpeed;
     private final int bestLapTime;
 
-    public Bus(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
+    private Size size;
+
+
+    public Bus(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime, Size size) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.size = size;
     }
 
+    public Size getSize () {return size;}
+
+    public void setSize (Size size) {this.size = size;}
+
+    public void printType () {
+        if (getSize() == null) {
+            System.out.println("Недостаточно данных");
+        } else {
+            System.out.println(getSize());
+        }
+    }
     void startMove() {
         System.out.println("Автобус начал движение");
     }

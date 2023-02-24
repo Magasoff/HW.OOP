@@ -1,29 +1,43 @@
 package Transport;
 
-public class lightCar extends Transport <DriverB> implements Competing  {
+public class LightCar extends Transport <DriverB> implements Competing {
     private final int pitStopTime;
     private final int maxSpeed;
     private final int bestLapTime;
 
-    public lightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime) {
+    private bodyCar bodyCar;
+
+    public LightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime, bodyCar bodyCar) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.bodyCar = bodyCar;
 
     }
 
+    public bodyCar getBodyCar () {return bodyCar;}
 
-    void startMove() {
+    public void setBodyCar (bodyCar bodyCar) {this.bodyCar = bodyCar;}
+
+    public void printType () {
+        if (getBodyCar() == null) {
+            System.out.println("Недостаточно данных");
+        } else {
+            System.out.println(getBodyCar());
+        }
+    }
+
+    void startMove () {
         System.out.println("Автомобиль начал движение");
     }
 
     @Override
-    public void finish() {
+    void finish() {
 
     }
 
-    void finishMove() {
+    void finishMove () {
         System.out.println("Автомобиль закончил движение");
     }
 
@@ -37,6 +51,7 @@ public class lightCar extends Transport <DriverB> implements Competing  {
 
     }
 
+    @Override
     public void getBestTime() {
         System.out.println("Лучшее время" + bestLapTime);
 
@@ -57,7 +72,3 @@ public class lightCar extends Transport <DriverB> implements Competing  {
 
     }
 }
-
-
-
-

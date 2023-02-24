@@ -31,11 +31,6 @@ public abstract class Transport <T extends Drive> implements Competing {
         this.engineVolume = engineVolume;
     }
 
-    @Override
-    public String toString() {
-        return " Transport: " + "марка: " + brand + " модель: " + model + " объем двигателя: " + engineVolume;
-    }
-
     abstract void startMove();
 
     abstract void finish();
@@ -54,7 +49,20 @@ public abstract class Transport <T extends Drive> implements Competing {
     public abstract boolean diagnostics();
 
     public abstract void repair();
+
+    public abstract void printType ();
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", drive=" + drive +
+                '}';
+    }
 }
+
 
 
 
