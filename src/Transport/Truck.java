@@ -20,6 +20,7 @@ public class Truck extends Transport <DriverC> implements Competing {
 
     public void setLoadCapacity (loadCapacity loadCapacity) {this.loadCapacity = loadCapacity;}
 
+
     @Override
     public void printType() {
         if (getLoadCapacity() == null) {
@@ -27,6 +28,10 @@ public class Truck extends Transport <DriverC> implements Competing {
         } else {
             System.out.println(getLoadCapacity());
         }
+    }
+
+    public boolean passDiagnostics () {
+        return this.passDiagnostics();
     }
 
     void startMove() {
@@ -63,7 +68,7 @@ public class Truck extends Transport <DriverC> implements Competing {
 
     }
 
-    @Override
+
     public boolean diagnostics() {
         return false;
     }

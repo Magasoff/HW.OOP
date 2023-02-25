@@ -7,6 +7,8 @@ public class LightCar extends Transport <DriverB> implements Competing {
 
     private bodyCar bodyCar;
 
+    private boolean diagnostickPassed;
+
     public LightCar(String brand, String model, double engineVolume, int pitStopTime, int maxSpeed, int bestLapTime, bodyCar bodyCar) {
         super(brand, model, engineVolume, maxSpeed);
         this.pitStopTime = pitStopTime;
@@ -16,11 +18,15 @@ public class LightCar extends Transport <DriverB> implements Competing {
 
     }
 
-    public bodyCar getBodyCar () {return bodyCar;}
+    public bodyCar getBodyCar() {
+        return bodyCar;
+    }
 
-    public void setBodyCar (bodyCar bodyCar) {this.bodyCar = bodyCar;}
+    public void setBodyCar(bodyCar bodyCar) {
+        this.bodyCar = bodyCar;
+    }
 
-    public void printType () {
+    public void printType() {
         if (getBodyCar() == null) {
             System.out.println("Недостаточно данных");
         } else {
@@ -28,7 +34,12 @@ public class LightCar extends Transport <DriverB> implements Competing {
         }
     }
 
-    void startMove () {
+    @Override
+    public boolean passDiagnostics () {
+        return this.passDiagnostics();
+    }
+
+    void startMove() {
         System.out.println("Автомобиль начал движение");
     }
 
@@ -37,7 +48,7 @@ public class LightCar extends Transport <DriverB> implements Competing {
 
     }
 
-    void finishMove () {
+    void finishMove() {
         System.out.println("Автомобиль закончил движение");
     }
 
@@ -62,13 +73,12 @@ public class LightCar extends Transport <DriverB> implements Competing {
         System.out.println("Максимальная скорость" + maxSpeed);
     }
 
-    @Override
     public boolean diagnostics() {
         return false;
     }
 
-    @Override
     public void repair() {
 
     }
 }
+

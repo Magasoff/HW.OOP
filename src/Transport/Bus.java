@@ -40,6 +40,11 @@ public class Bus extends Transport <DriverD> implements  Competing {
     void finishMove() {
         System.out.println("Автобус закончил движение");
     }
+    @Override
+    public boolean passDiagnostics () {
+        throw new TransportTypeException ("Автобусы диагностику не проходят");
+
+    }
 
     @Override
     public void getPitStop() {
@@ -62,7 +67,7 @@ public class Bus extends Transport <DriverD> implements  Competing {
         System.out.println("Максимальная скорость" + maxSpeed);
     }
 
-    @Override
+
     public boolean diagnostics() {
         return false;
     }

@@ -46,11 +46,13 @@ public abstract class Transport <T extends Drive> implements Competing {
 
     public abstract void getMaxSpeed();
 
-    public abstract boolean diagnostics();
+    //public abstract boolean diagnostics();
 
     public abstract void repair();
 
     public abstract void printType ();
+
+    abstract boolean passDiagnostics () throws TransportTypeException;
 
     @Override
     public String toString() {
@@ -62,6 +64,8 @@ public abstract class Transport <T extends Drive> implements Competing {
                 '}';
     }
 }
+
+
 
 
 
